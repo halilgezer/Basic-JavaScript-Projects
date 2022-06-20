@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Starting</title>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="500" style="border: 1px solid black;">
+    This browser cannot run canvas.
+  </canvas>
+  <script>
+    var tuval = document.getElementById("canvas");
+    var cizim = tuval.getContext("2d");
+    cizim.beginPath(); //begin to the drawing
+    cizim.moveTo(0,0);
+    cizim.lineTo(300,300); //drawing a line to the 300 in x axis and 300 in y axis.
+    cizim.lineTo(400,300);
+    cizim.lineTo(500,100);
+   // cizim.moveTo(150,150);
+    //cizim.lineTo(175,260);
+
+    cizim.arc(300,200,80,0,2*Math.PI); // Draws a circle. It 
+    //starts from the 300 2000 koordinate and the radius is 80 
+    cizim.font="40px Arial";
+    cizim.fillText("İbrahim Halil Gezer",140,400)
+    
+    cizim.stroke(); // ıt manupulates the drawing area.
+    cizim.fillRect(150,280,60,80)
+
+  </script>  
+
+</body>
+</html>

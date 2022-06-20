@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decresing and Increasing The Values </title>
+  <style>
+    #increase{
+      background-color: green;
+      width: 8vw;
+      height: 8vh;
+      font-size: 1.5rem;
+      color: white;
+      border: none;
+    }
+    
+    #number{
+      width: 30vw;
+      height: 8vh;
+      font-size: 1.5rem;
+      color: black;
+      
+     
+    }
+    #decrease{
+      background-color: red;
+      width: 8vw;
+      height: 8vh;
+      font-size: 1.5rem;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <input id="number" type="text" value="0">
+  <button onclick="increase()" id="increase">+</button>
+  <button onclick="decrease()" id="decrease">-</button>
+
+  <script>
+    function increase(){
+      var x = document.getElementById("number").value ;
+      x++;
+      document.getElementById("number").value = x ;
+
+    }
+    function decrease(){
+      var x = document.getElementById("number").value ;
+      x--;
+      document.getElementById("number").value = x ;
+
+    }
+  </script>
+</body>
+</html>

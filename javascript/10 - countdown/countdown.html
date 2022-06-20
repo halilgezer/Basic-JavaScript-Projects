@@ -1,0 +1,104 @@
+<!-- ## Project 10
+
+  ### count Down 
+
+  * This application expect the user for enter 3 value. One of them is for hours. The other one is for minutes. And the last one is for seconds. 
+  * In the end like a digital way ıt show the numbers countdown.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown</title>
+  <style>
+    #body{
+      background-color: green;
+    }
+    #container{
+      width: 600px;
+      height: auto;
+      position: relative;
+      top: 200px;
+      left: 400px;
+      
+     
+    }
+    #hours{
+      width: 180px;
+      height: 150px;
+      background-color: whitesmoke;
+      float: left;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 150px;
+      font-size: 70px;
+      
+    }
+    #minutes{
+      width: 180px;
+      height: 150px;
+      background-color: whitesmoke;
+      float: left;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 150px;
+      font-size: 70px;
+    }
+    #seconds{
+      width: 180px;
+      height: 150px;
+      background-color: whitesmoke;
+      float: left;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 150px;
+      font-size: 70px;
+    }
+
+  </style>
+</head>
+<body id="body">
+  <div id="container">
+    <div id="hours"> hours </div>
+    <div id="minutes">minutes</div>
+    <div id="seconds"> secons</div>
+  </div>
+  
+  <script>
+    var hours, minutes, seconds ;
+    
+    hours = prompt("Please enter the hours for the countdown.","1");
+    minutes = prompt("Please enter the minutes for the countdown.","1");
+    seconds = prompt("Please enter the seconds for the countdown.","10");
+    var a = setInterval(function() {
+      document.getElementById("hours").innerHTML = hours ;
+    document.getElementById("minutes").innerHTML = minutes ; 
+    document.getElementById("seconds").innerHTML = seconds ; 
+      
+      if(seconds == 0 && minutes > 0) {
+        minutes-- ;
+        seconds = 59 ;
+      }
+
+
+      if(minutes == 0 && seconds == 0 && hours >0){
+        hours--;
+        minutes = 59 ;
+        seconds = 60 ; 
+      
+      }
+      else if (minutes == 0 && seconds == 0 && hours ==0) {
+        seconds = 0 ;
+        clearInterval(a);
+      }
+     
+      
+      seconds-- ;
+    } , 1000)
+  </script>
+</body>
+</html>

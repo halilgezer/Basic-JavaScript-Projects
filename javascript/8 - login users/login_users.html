@@ -1,0 +1,133 @@
+<!-- 
+## Project 8
+
+  ###  Login Users
+  * In This Project program looks the differences betweeen the Real
+   user name and password and the user name and password which entered. 
+   If they are the same program let user to enter the digital watch.html document.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Users</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      background-color: lightgrey;
+      width: 30%;
+      height: 200px;
+      position: absolute;
+      top: 25%;
+      left: 30%;
+      z-index: 1;
+      border: 1px solid grey;
+      border-radius: 15px;
+    }
+
+    #username {
+      width: 150px;
+      height: 30px;
+      margin: 15px;
+      margin-left: 50px;
+    }
+
+    #password {
+      width: 150px;
+      height: 30px;
+      margin: 15px;
+      margin-left: 59px;
+    }
+
+    #btn {
+      width: 300px;
+      height: 30px;
+      border: 1px solid grey;
+      border-radius: 5px;
+      margin-top: 10px;
+      margin-left: 90px;
+    }
+  </style>
+
+</head>
+
+<body id="body">
+
+
+  <img id="img" src="" alt="Lorem Picsum" width="1300" height="900">
+  <div id="container">
+    <label style="margin-left: 40px;" for="username">User Name :</label>
+    <input id="username" type="text"><br>
+    <label style="margin-left: 40px;" for="password">Password :</label>
+    <input id="password" type="password"> <br>
+    <button onclick="confirm()" id="btn"> Login </button>
+  </div>
+
+  <script>
+    var text = "";
+    var general = ["https://picsum.photos/id/10/200/300", // there are 10 picture.
+      "https://picsum.photos/id/100/200/300",
+      "https://picsum.photos/id/1001/200/300",
+      "https://picsum.photos/id/1003/200/300",
+      "https://picsum.photos/id/1006/200/300",
+      "https://picsum.photos/id/101/200/300",
+      "https://picsum.photos/id/1011/200/300",
+      "https://picsum.photos/id/1012/200/300",
+      "https://picsum.photos/id/1015/200/300",
+      "https://picsum.photos/id/1018/200/300"
+    ];
+
+
+
+    function pickImage() {
+      var random = Math.round(Math.random() * 9);
+      text = general[random];
+
+
+    }
+
+    setInterval(function () {
+      pickImage();
+      document.getElementById("img").src = text;
+    }, 1000)
+    var users = [{ username: "admin", password: "admin" },
+    { username: "java", password: "1234" },
+    { username: "script", password: "4567" },
+    ]
+
+    function control() {
+      var enteredUserName;
+      var enteredPassword;
+      enteredUserName = document.getElementById("username").value;
+      enteredPassword = document.getElementById("password").value;
+      for (var x of users) {
+        if (enteredUserName == x.username && enteredPassword == x.password) {
+          return true;
+        }
+      }
+    }
+
+    function confirm() {
+      if (control()) {
+        window.open("/digital_watch.html", self);
+
+      }
+      else {
+        alert("Invalid username or password. Please try again");
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+
+      }
+    }
+  </script>
+</body>
+
+</html>

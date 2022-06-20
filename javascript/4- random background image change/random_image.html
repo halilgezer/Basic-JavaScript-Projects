@@ -1,0 +1,52 @@
+<!--
+  ## Project 4
+
+  ### Random Bacground Image Change 
+
+  * Like the project 2 but in this time the application program change the background ımage automatically in every 2 seconds.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Background Image Change</title>
+
+</head>
+<body id="body">
+
+  <img id="img" src="" alt="Lorem Picsum" width="1300" height="900">
+
+  <script>
+    var text ="" ;
+    var general  =["https://picsum.photos/id/10/200/300" , // there are 10 picture.
+                   "https://picsum.photos/id/100/200/300",
+                   "https://picsum.photos/id/1001/200/300",
+                   "https://picsum.photos/id/1003/200/300",
+                   "https://picsum.photos/id/1006/200/300",
+                   "https://picsum.photos/id/101/200/300",
+                   "https://picsum.photos/id/1011/200/300",
+                   "https://picsum.photos/id/1012/200/300",
+                   "https://picsum.photos/id/1015/200/300",
+                   "https://picsum.photos/id/1018/200/300" 
+                  ] ;
+                  
+                  
+    
+    function pickImage (){
+      var random = Math.round(Math.random() * 9 ); // we have 10 img so it returns 0 to 9 ıt means 10  value
+      text = general[random];  
+      
+  
+    }
+                  
+    setInterval(function(){
+      pickImage();
+      document.getElementById("img").src = text ; 
+    } , 1000    )
+
+    
+  </script>
+</body>
+</html>

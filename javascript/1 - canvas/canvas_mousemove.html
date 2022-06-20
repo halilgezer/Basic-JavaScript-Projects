@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Application with Mouse Movement</title>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="500" style="border: 1px solid grey;">
+    This browser cannot run canvas.
+
+  </canvas>
+  
+  <script>
+    var tuval = document.getElementById("canvas");
+    var cizim = tuval.getContext("2d");
+
+    function clear(){
+      cizim.beginPath();
+      cizim.fillStyle="#ffffff";
+      cizim.fillRect(0,0,tuval.width, tuval.height);
+      cizim.stroke;
+
+    }
+    tuval.addEventListener("mousemove",function(e){
+      clear();
+      cizim.beginPath();
+      cizim.arc(e.x,e.y,30,0,2*Math.PI);
+      cizim.fillStyle="#ff6600"
+      cizim.fill();
+      
+      cizim.stroke;
+
+
+    }
+    )
+  </script>
+  <h1>Canvas Application with mouse Movement </h1>
+</body>
+</html>

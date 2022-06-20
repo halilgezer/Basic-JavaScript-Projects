@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Canvas Application with Mouse Clicking</title>
+</head>
+<body>
+ 
+  <canvas id="canvas" width="600" height="500" style="border: 1px solid black ;" >
+    This browser cannot run canvas.
+  </canvas>
+
+  <script>
+
+  var tuval = document.getElementById("canvas");
+  var cizim = tuval.getContext("2d");
+  cizim.font="20px Arial";
+  cizim.fillText("Canvas Application with Mouse Click",50,30)
+  tuval.addEventListener('click', function (e){
+      cizim.beginPath();
+      cizim.arc(e.x,e.y,50,0,2*Math.PI);
+      cizim.stroke();
+   }
+    );
+  
+ /* cizim.beginPath();
+  cizim.moveTo(0,0);
+  cizim.lineTo(300,320);
+  cizim.lineTo(300,180);
+  cizim.stroke();
+  */
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Bouncing</title>
+</head>
+<body>
+<canvas id="canvas" width="600" height="500" style="border: 1px solid darkgrey;">
+
+</canvas>
+<script>
+  var tuval = document.getElementById("canvas");
+  var cizim = tuval.getContext("2d");
+  var xAxis = tuval.width/2;
+  var yAxis = tuval.height/2;
+  var dx = 5 ; 
+  var dy = 5 ;
+  function bouncingBall(){
+    clear();
+      cizim.beginPath();
+      cizim.arc(xAxis,yAxis,10,0,2*Math.PI);
+      cizim.fillStyle="#ff6600"
+      xAxis +=dx;
+      yAxis +=dy ;
+      cizim.fill();
+      cizim.stroke;
+      if (xAxis >= tuval.width -10  || xAxis <= 0) {
+      //  xAxis *=-1;
+        dx *= -1 ;
+      }
+      if (yAxis >= tuval.height -10  || yAxis <= 10) {
+        //yAxis *=-1;
+        dy *= -1 ;
+      }
+
+  }
+  function clear (){
+    cizim.beginPath();
+    cizim.fillStyle="#ffffff";
+    cizim.fillRect(0,0,tuval.width,tuval.height);
+    cizim.stroke();
+  }
+setInterval(bouncingBall,10)
+
+</script>
+</body>
+</html>

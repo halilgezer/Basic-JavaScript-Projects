@@ -1,0 +1,44 @@
+<!--
+  ## Project 2 
+
+  ### Random Bacground Color Change 
+
+   * In this application program change the background color automatically in every 2 seconds.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Background Color Change</title>
+  <style>
+   
+  </style>
+</head>
+<body id="arka">
+
+  
+    <script>
+      
+     var text ;
+      function colorPicker() {
+        
+       var general="ABCDEF0123456789";
+       text = "#";
+        for( var i = 0 ; i < 6 ; i++){
+          var random = Math.round(Math.random() * 15);
+          text += general.charAt(random) ;
+         // return text ;
+          }
+        
+      }
+     
+      setTimeout(function(){
+         colorPicker();
+        document.getElementById("arka").style.backgroundColor = text ;  ;
+      } ,500)
+    
+    </script>
+</body>
+</html>

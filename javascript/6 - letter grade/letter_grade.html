@@ -1,0 +1,172 @@
+<!-- 
+  ## Project 6
+
+  ### Letter Grade
+
+  * This program expect from the user 3 letter.
+  First one is Midterm 1 
+  Second one is Midterm 2 
+  Last one is Fİnal Exam.
+  And ıt calculate the average and return the letter value . AA BA BB CC etc...
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letter Grade </title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #container{
+      background-color: lightgrey;
+      width: 30%;
+      height: auto;
+      position: absolute;
+      top: 25%;
+      left: 30%;
+      z-index: 1;
+      border: 1px solid grey;
+      border-radius: 15px;
+    }
+    #vize1{
+      width: 150px;
+      height: 30px;
+      margin: 15px ;
+      margin-left: 40px;
+    }
+    #vize2{
+      width: 150px;
+      height: 30px;
+      margin: 15px ;
+      margin-left: 40px;
+    }
+    #final{
+      width: 150px;
+      height: 30px;
+      margin: 15px ;
+      margin-left: 75px;
+    }
+    #show{
+      width: 100px;
+      height: 80px;
+      background-color: aqua;
+      border: 1px solid grey;
+      border-radius: 10px;
+      margin-left: 200px;
+      display: none;
+      text-align: center;
+      line-height: 80px;
+      font-size: 40px;
+      font-family: arial;
+    
+    }
+
+    #btn{
+      width: 280px;
+      height: 30px;border: 1px solid grey;
+      border-radius: 5px;
+     
+      margin: 10px 0 10px 90px;
+    }
+  </style>
+ 
+</head>
+<body id="body">
+
+
+  <img id="img" src="" alt="Lorem Picsum" width="1366" height="900">
+  <div id="container">
+    <label style="margin-left: 40px;" for="vize1">Midterm Exam 1 :</label>
+    <input id="vize1" type="text"><br>
+    <label style="margin-left: 40px;" for="vize2">Midterm Exam 2 :</label>
+    <input id="vize2" type="text"> <br>
+    <label style="margin-left: 40px;" for="vize2">Final Exam :</label>
+    <input id="final" type="text"> <br>
+    <div id="show" >
+
+    </div>
+    <button onclick="showLetter()" id="btn"> Calculate </button>
+  </div>
+
+  <script>
+    var text ="" ;
+    var general  =["https://picsum.photos/id/10/200/300" , // there are 10 picture.
+                   "https://picsum.photos/id/100/200/300",
+                   "https://picsum.photos/id/1001/200/300",
+                   "https://picsum.photos/id/1003/200/300",
+                   "https://picsum.photos/id/1006/200/300",
+                   "https://picsum.photos/id/101/200/300",
+                   "https://picsum.photos/id/1011/200/300",
+                   "https://picsum.photos/id/1012/200/300",
+                   "https://picsum.photos/id/1015/200/300",
+                   "https://picsum.photos/id/1018/200/300" 
+                  ] ;
+                  
+                  
+    
+    function pickImage (){
+      var random = Math.round(Math.random() * 9 );
+      text = general[random];
+      
+  
+    } 
+    
+    setInterval(function(){
+      pickImage();
+      document.getElementById("img").src = text ;
+    } , 3000    )
+
+    var vize1, vize2, final , average;              
+    function calculate(){
+      vize1 = document.getElementById("vize1").value;
+      vize2 = document.getElementById("vize2").value;
+      final = document.getElementById("final").value;
+      var average = (vize1*0.3) + (vize2*0.3) + (final*0.4) ;
+      return average ;
+    }
+    function letterGrade (){
+      var avg = calculate() ;
+      if (avg >= 90 && avg <=100 )
+        return "AA";
+      else if (avg >= 85 && avg <90 )
+        return "BA";
+      else  if (avg >= 80 && avg <85 )
+       return "BB";
+      else if (avg >= 70 && avg <80 )
+        return "CB";
+      else if (avg >= 60 && avg <70 )
+        return "CC";
+      else if (avg >= 50 && avg <60 ) 
+        return "DC";
+      else if (avg >= 45 && avg <50 )
+        return "DD";
+      else if (avg >= 40 && avg <45 )
+        return "FD";
+      else if (avg >= 0 && avg <40 )
+        return "FF";
+      else{
+        return "Invalid values..." ;
+    }
+    }
+    function showLetter (){
+      document.getElementById("show").style.display = "block";
+      document.getElementById("show").innerHTML =letterGrade();
+
+      if (letterGrade () == "FF" || letterGrade () == "FD"){
+        document.getElementById("show").style.backgroundColor ="red";
+      }
+      else{
+        document.getElementById("show").style.backgroundColor ="green";
+      }
+
+    }
+    
+    
+  
+  </script>
+</body>
+</html>

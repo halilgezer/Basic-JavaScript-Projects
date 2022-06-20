@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Watch</title>
+  <style>
+    #body{
+      background-color: green;
+    }
+    #container{
+      width: 600px;
+      height: auto;
+      position: relative;
+      top: 200px;
+      left: 400px;
+      
+     
+    }
+    #hours{
+      width: 180px;
+      height: 150px;
+      background-color: whitesmoke;
+      float: left;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 150px;
+      font-size: 70px;
+      
+    }
+    #minutes{
+      width: 180px;
+      height: 150px;
+      background-color: whitesmoke;
+      float: left;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 150px;
+      font-size: 70px;
+    }
+    #seconds{
+      width: 180px;
+      height: 150px;
+      background-color: whitesmoke;
+      float: left;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 150px;
+      font-size: 70px;
+    }
+
+  </style>
+</head>
+<body id="body">
+  <div id="container">
+    <div id="hours"> hours </div>
+    <div id="minutes">minutes</div>
+    <div id="seconds"> secons</div>
+  </div>
+  
+  <script>
+    var hours, minutes, seconds ;
+    var date = new Date();
+    hours = date.getHours();
+    minutes = date.getMinutes();
+    seconds = date.getSeconds();
+
+    setInterval(function() {
+      document.getElementById("hours").innerHTML = hours ;
+    document.getElementById("minutes").innerHTML = minutes ; 
+    document.getElementById("seconds").innerHTML = seconds ; 
+      seconds++ ;
+      if(seconds == 60) {
+        seconds = 0 ;
+        minutes++ ;
+      }
+      if(minutes > 60 ) {
+        minutes = 0 ;
+        hours++;
+      }
+      if (hours >23) {
+        hours = 0 ;
+
+      }
+
+    } , 1000)
+  </script>
+</body>
+</html>
