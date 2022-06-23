@@ -61,6 +61,8 @@
  * *   Last one is Fİnal Exam.
   And ıt calculate the average and return the letter value . AA BA BB CC etc...
 
+## Project 7 
+  * program ask name and say hi to Your name and shows the time and day also.
 
 ## Project 8
 
